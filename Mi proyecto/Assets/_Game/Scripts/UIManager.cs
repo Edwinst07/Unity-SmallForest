@@ -30,7 +30,7 @@ public class UIManager : MonoBehaviour
     public void UpdatePuntuation(int point)
     {
         inventory.SetActive(true);
-        puntuation.text = " X " + point;
+        puntuation.text = " 4 / " + point;
     }
 
     public void StartPlay()
