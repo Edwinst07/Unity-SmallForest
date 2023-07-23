@@ -382,7 +382,8 @@
 "Assets/_Game/Scripts/Enemigogolpe.cs"
 "Assets/_Game/Scripts/GiroP.cs"
 "Assets/_Game/Scripts/Recoleccion.cs"
-"Assets/_Game/Scripts/UIManager.cs"
+"Assets/_Game/Scripts/UI/Intro.cs"
+"Assets/_Game/Scripts/UI/UIManager.cs"
 -langversion:9.0
 
 /deterministic
