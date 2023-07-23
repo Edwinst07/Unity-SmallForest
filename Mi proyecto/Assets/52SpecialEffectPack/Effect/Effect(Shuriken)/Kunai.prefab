@@ -14375,6 +14375,7 @@ GameObject:
   - component: {fileID: 400006}
   - component: {fileID: 114000011465945996}
   - component: {fileID: 114000010586641710}
+  - component: {fileID: -4988156224691777640}
   m_Layer: 0
   m_Name: Kunai
   m_TagString: Untagged
@@ -14425,3 +14426,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
+--- !u!114 &-4988156224691777640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67091aca147965949a80dd0216c147c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
