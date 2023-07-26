@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class GiroP : MonoBehaviour
 {
-    Vector3 rotacion = new Vector3(15, 30, 45);
+    public int id;
+    Vector3 rotacion;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +16,19 @@ public class GiroP : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(rotacion * Time.deltaTime);
+        if(id == 1)
+        {
+            rotacion = new Vector3(15, 30, 45);
+            transform.Rotate(rotacion * Time.deltaTime);
+
+        }else if(id == 2)
+        {
+            rotacion = new Vector3(0, 45, 0);
+            transform.Rotate(rotacion * Time.deltaTime);
+        }
+
+        
     }
+
+
 }

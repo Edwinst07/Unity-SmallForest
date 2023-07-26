@@ -5,10 +5,8 @@ using UnityEngine.UI;
 
 public class Recoleccion : MonoBehaviour
 {
-    private int contador;
+    private int counterSeed, counterLand;
     private Rigidbody rb;
-    public Text puntuacion;
-    //public Text terminaste;
     private UIManager _uiManager;
 
 
@@ -19,33 +17,31 @@ public class Recoleccion : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("items"))
+        if (other.CompareTag("seed"))
         {
             Destroy(other.gameObject);
-            contador = contador + 1;
-            _uiManager.UpdatePuntuation(contador);
-            //actualizarmarcador();
-            /*
-            if (contador >= 4)
-            {
-                terminaste.gameObject.SetActive(true);
-            }
-            */
+            counterSeed = counterSeed + 1;
+            _uiManager.UpdatePointSeed(counterSeed);
+           
+        }
+        if (other.CompareTag("land"))
+        {
+            Destroy(other.gameObject);
+            counterLand = counterLand + 1;
+            _uiManager.UpdatePointLand(counterLand);
+        }
+        if (other.CompareTag("water"))
+        {
+            Destroy(other.gameObject);
+            _uiManager.UpdatePointWater(1);
         }
 
     }
-    /*
-    private void actualizarmarcador()
-    {
-        puntuacion.text = "Puntuacion: " + contador;
-    }
-    */
+
     public void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        contador = 0;
-        //actualizarmarcador();
-        //terminaste.gameObject.SetActive(false);
+        counterSeed = 0;
     }
 
 

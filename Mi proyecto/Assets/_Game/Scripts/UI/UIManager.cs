@@ -7,9 +7,9 @@ public class UIManager : MonoBehaviour
 {
 
     [SerializeField]
-    private Text puntuation;
+    private Text puntuationSeed, puntuationLand, puntuationWater;
     [SerializeField]
-    private GameObject inventory;
+    private GameObject inventorySeed, inventoryLand, inventoryWater;
     [SerializeField]
     private GameObject intro;
     [SerializeField]
@@ -27,10 +27,22 @@ public class UIManager : MonoBehaviour
         
     }
 
-    public void UpdatePuntuation(int point)
+    public void UpdatePointSeed(int point)
     {
-        inventory.SetActive(true);
-        puntuation.text = " 4 / " + point;
+        inventorySeed.SetActive(true);
+        puntuationSeed.text = " 4 / " + point;
+    }
+
+    public void UpdatePointLand(int point)
+    {
+        inventoryLand.SetActive(true);
+        puntuationLand.text = " 4 / " + point;
+    }
+
+    public void UpdatePointWater(int point)
+    {
+        inventoryWater.SetActive(true);
+        puntuationWater.text = " 1 / " + point;
     }
 
     public void StartPlay()
