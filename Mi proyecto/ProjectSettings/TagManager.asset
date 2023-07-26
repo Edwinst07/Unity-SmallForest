@@ -9,6 +9,9 @@ TagManager:
   - items
   - Enemigo
   - player
+  - water
+  - land
+  - seed
   layers:
   - Default
   - TransparentFX
