@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Recoleccion : MonoBehaviour
 {
-    private int counterSeed, counterLand;
+    private int counterSeed, counterLand, counterWater;
     private Rigidbody rb;
     private UIManager _uiManager;
 
@@ -33,7 +33,8 @@ public class Recoleccion : MonoBehaviour
         if (other.CompareTag("water"))
         {
             Destroy(other.gameObject);
-            _uiManager.UpdatePointWater(1);
+            counterWater = counterWater + 1;
+            _uiManager.UpdatePointWater(counterWater);
         }
 
     }

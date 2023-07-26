@@ -42,7 +42,7 @@ public class UIManager : MonoBehaviour
     public void UpdatePointWater(int point)
     {
         inventoryWater.SetActive(true);
-        puntuationWater.text = " 1 / " + point;
+        puntuationWater.text = " 4 / " + point;
     }
 
     public void StartPlay()
