@@ -381,8 +381,10 @@
 "Assets/_Game/Scripts/Enemigo.cs"
 "Assets/_Game/Scripts/Enemigogolpe.cs"
 "Assets/_Game/Scripts/GiroP.cs"
-"Assets/_Game/Scripts/Recoleccion.cs"
+"Assets/_Game/Scripts/Player/Player.cs"
+"Assets/_Game/Scripts/Player/Recoleccion.cs"
 "Assets/_Game/Scripts/UI/Intro.cs"
+"Assets/_Game/Scripts/UI/LIveBar.cs"
 "Assets/_Game/Scripts/UI/UIManager.cs"
 -langversion:9.0
 

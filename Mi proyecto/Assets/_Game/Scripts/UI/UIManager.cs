@@ -14,6 +14,9 @@ public class UIManager : MonoBehaviour
     private GameObject intro;
     [SerializeField]
     private GameObject player;
+    [SerializeField]
+    private Slider liveBar;
+
 
     // Start is called before the first frame update
     void Start()
@@ -51,5 +54,12 @@ public class UIManager : MonoBehaviour
         
         player.SetActive(true);
     }
-
+    /*
+    public void SliderLiveBar(int counterLive, int liveMax, int liveMin)
+    {
+        liveBar.value = counterLive;
+        liveBar.minValue = liveMin; 
+        liveBar.maxValue = liveMax;
+    }
+    */
 }

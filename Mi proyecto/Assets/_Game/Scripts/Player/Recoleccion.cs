@@ -42,7 +42,6 @@ public class Recoleccion : MonoBehaviour
     public void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        counterSeed = 0;
     }
 
 
