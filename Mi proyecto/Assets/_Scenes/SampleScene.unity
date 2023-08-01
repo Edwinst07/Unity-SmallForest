@@ -25,8 +25,8 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 2ef68ec99909ca74a97c0f15073238b4, type: 2}
+  m_SubtractiveShadowColor: {r: 0.36436453, g: 0.7255335, b: 0.8679245, a: 1}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 2bd8959f5fbd3644aa33af1a155fc147, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.32097125, g: 0.21131825, b: 0.40435025, a: 1}
+  m_IndirectSpecularColor: {r: 0.3628758, g: 0.5661719, b: 0.8437137, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -941,9 +941,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 312990302}
+  - component: {fileID: 312990304}
   - component: {fileID: 312990303}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: SliderHealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1023,6 +1024,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &312990304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312990301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c924f765f85292419589a94329aecdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &332202338
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6037,7 +6050,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 462781198}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2545, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6550,6 +6563,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 705507995}
+  - component: {fileID: 705507996}
   - component: {fileID: 705507994}
   m_Layer: 0
   m_Name: Directional Light
@@ -6569,7 +6583,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0.8802966, g: 0.9528302, b: 0.33708617, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -6628,13 +6642,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 2545, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &705507996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705507993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5bd8a30e3a0994ca7de840858ac081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationScale: 0.5
 --- !u!1 &728432898
 GameObject:
   m_ObjectHideFlags: 0
@@ -13596,6 +13623,7 @@ MonoBehaviour:
   inventoryWater: {fileID: 2026396099}
   intro: {fileID: 1444921952}
   player: {fileID: 4416926083347132227}
+  liveBar: {fileID: 0}
 --- !u!82 &1682918178
 AudioSource:
   m_ObjectHideFlags: 0
@@ -29570,6 +29598,7 @@ GameObject:
   - component: {fileID: 135756641613574975}
   - component: {fileID: 4416926083347132239}
   - component: {fileID: 6982812147933622149}
+  - component: {fileID: 6982812147933622152}
   - component: {fileID: 6982812147933622150}
   - component: {fileID: 6982812147933622151}
   m_Layer: 3
@@ -36402,6 +36431,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64d1ebae2a15c0243bfb122171bd69c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6982812147933622152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4416926083347132227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26da30494b4355648b56e30653240078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  counterLive: 0
+  gameOver: 0
 --- !u!4 &6983258930626336602
 Transform:
   m_ObjectHideFlags: 0
