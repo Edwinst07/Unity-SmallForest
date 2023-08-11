@@ -46,4 +46,8 @@ public class Enemigo : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, rangoDeAlerta);
         Gizmos.color = Color.red;
     }
+
+
 }
+
+

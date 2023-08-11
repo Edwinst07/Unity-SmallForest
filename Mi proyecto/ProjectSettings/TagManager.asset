@@ -12,6 +12,7 @@ TagManager:
   - water
   - land
   - seed
+  - feet
   layers:
   - Default
   - TransparentFX
