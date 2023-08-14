@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     private CollisionPlayer _collision;
     private float forceJump = 8f;
     private Rigidbody _rb;
+    private AnimationPlayer _animPlayer;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,7 @@ public class Player : MonoBehaviour
 
         _collision = GetComponent<CollisionPlayer>();
         _rb = GetComponent<Rigidbody>();
+        _animPlayer = GetComponent<AnimationPlayer>();
     }
 
     // Update is called once per frame
@@ -42,9 +44,9 @@ public class Player : MonoBehaviour
     private void live()
     {
         _liveBar.liveValue(counterLive);
-        if(counterLive < 1)
+        if (counterLive < 1)
         {
-            
+
             gameOver = true;
         }
     }
@@ -54,7 +56,10 @@ public class Player : MonoBehaviour
         float inputHorizontal = Input.GetAxis("Horizontal");
         float inputVertical = Input.GetAxis("Vertical");
 
-        Vector3 move = new Vector3(inputHorizontal, 0, inputVertical);
+        _animPlayer.SetHorizontal(inputHorizontal);
+        _animPlayer.SetVertical(inputVertical);
+
+        Vector3 move = new Vector3(inputHorizontal, 0, inputVertical).normalized;
         transform.Translate(move * Time.deltaTime * _spped);
 
 
@@ -62,9 +67,13 @@ public class Player : MonoBehaviour
 
     private void jump()
     {
-        if(_collision.touchingFloor && Input.GetKeyDown(KeyCode.Space))
+        if (_collision.touchingFloor && Input.GetKeyDown(KeyCode.Space))
+        {
             _rb.AddForce(0, forceJump, 0, ForceMode.Impulse);
-            
+            _animPlayer.SetJump(_collision.touchingFloor);
+        }
+
+
     }
 
 }

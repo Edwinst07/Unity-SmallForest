@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 895170489775508755}
   - component: {fileID: 895170489775508750}
   - component: {fileID: 1256683764274830108}
+  - component: {fileID: 4265794156477277457}
+  - component: {fileID: 8657390460406528561}
   - component: {fileID: 895170489775508751}
   m_Layer: 0
   m_Name: YEIBOT
@@ -120,6 +122,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   touchingFloor: 1
+--- !u!114 &4265794156477277457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48731457882320971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8e3b642c39b0b543a80a5e41334e31d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8657390460406528561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48731457882320971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d1ebae2a15c0243bfb122171bd69c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &895170489775508751
 MonoBehaviour:
   m_ObjectHideFlags: 0

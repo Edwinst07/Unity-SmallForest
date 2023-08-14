@@ -11,8 +11,14 @@ public class Enemigo : MonoBehaviour
     bool estarAlerta;
     public Transform jugador;
     public float velocidad;
-    public NavMeshAgent agente;
+    public NavMeshAgent agent;
     public Animator animacion;
+    [SerializeField]
+    private List<Transform> points;
+    private int currentDestination;
+    [SerializeField]
+    private float changeDestinationDistance;
+
     
     void Start()
     {
@@ -22,22 +28,10 @@ public class Enemigo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        estarAlerta = Physics.CheckSphere(transform.position, rangoDeAlerta, capaDelJugador);
+        patrol();
+        chase();
+      
 
-        if(estarAlerta == true)
-        {
-            animacion.SetBool("walk",true);
-            //transform.LookAt(jugador);
-            Vector3 posjugador = new Vector3(jugador.position.x, transform.position.y, jugador.position.z);
-            //transform.LookAt(posjugador);
-            //transform.position = Vector3.MoveTowards(transform.position,posjugador, velocidad * Time.deltaTime);
-            agente.SetDestination(posjugador);
-        }
-        if(estarAlerta == false)
-        {
-            animacion.SetBool("walk",false);
-        }
     }
 
     private void OnDrawGizmos()
@@ -47,6 +41,45 @@ public class Enemigo : MonoBehaviour
         Gizmos.color = Color.red;
     }
 
+    private void chase()
+    {
+        estarAlerta = Physics.CheckSphere(transform.position, rangoDeAlerta, capaDelJugador);
+
+        if (estarAlerta == true)
+        {
+            animacion.SetBool("walk", true);
+            //transform.LookAt(jugador);
+            Vector3 posjugador = new Vector3(jugador.position.x, transform.position.y, jugador.position.z);
+            //transform.LookAt(posjugador);
+            //transform.position = Vector3.MoveTowards(transform.position,posjugador, velocidad * Time.deltaTime);
+            agent.SetDestination(posjugador);
+        }
+        if (estarAlerta == false)
+        {
+            animacion.SetBool("walk", false);
+        }
+    }
+
+    private void patrol()
+    {
+        agent.SetDestination(points[currentDestination].position);
+        if(Vector3.Distance(agent.destination, transform.position) < changeDestinationDistance)
+        {
+            changeDestination();
+        }
+    }
+
+    private void changeDestination()
+    {
+        if(currentDestination < points.Count - 1)
+        {
+            currentDestination += 1;
+        }
+        else
+        {
+            currentDestination = 0;
+        }
+    }
 
 }
 

@@ -377,6 +377,7 @@
 "Assets/_Game/Scripts/Enemigogolpe.cs"
 "Assets/_Game/Scripts/GiroP.cs"
 "Assets/_Game/Scripts/NewBehaviourScript.cs"
+"Assets/_Game/Scripts/Player/AnimationPlayer.cs"
 "Assets/_Game/Scripts/Player/CollisionPlayer.cs"
 "Assets/_Game/Scripts/Player/Foot.cs"
 "Assets/_Game/Scripts/Player/LookX.cs"
