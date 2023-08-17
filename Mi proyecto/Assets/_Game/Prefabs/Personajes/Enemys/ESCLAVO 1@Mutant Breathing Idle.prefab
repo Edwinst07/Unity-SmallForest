@@ -1027,6 +1027,7 @@ GameObject:
   - component: {fileID: 6899427667199531774}
   - component: {fileID: 675430251137056900}
   - component: {fileID: 675430251137056907}
+  - component: {fileID: 1051166491144734467}
   - component: {fileID: 675430251137056906}
   - component: {fileID: 675430251137056901}
   - component: {fileID: 675430251137056904}
@@ -1095,8 +1096,22 @@ MonoBehaviour:
     m_Bits: 8
   jugador: {fileID: 0}
   velocidad: 5
-  agente: {fileID: 675430251137056901}
+  agent: {fileID: 0}
   animacion: {fileID: 675430251137056900}
+  points: []
+  changeDestinationDistance: 0
+--- !u!114 &1051166491144734467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6121623638717120580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06438795ba9c62945913dd8c4ae82e56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &675430251137056906
 SphereCollider:
   m_ObjectHideFlags: 0

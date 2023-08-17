@@ -6,12 +6,8 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
 
-    public int counterLive;
-    public bool gameOver = false;
-    //private UIManager _uiManager;
-    private LiveBar _liveBar;
-    private const int liveMax = 100;
-    private const int liveMin = 0;
+
+
     [SerializeField]
     private float _spped = 3.5f;
     private CollisionPlayer _collision;
@@ -22,10 +18,6 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //_uiManager = Component.FindObjectOfType<UIManager>();
-        _liveBar = Component.FindObjectOfType<LiveBar>();
-        _liveBar.liveMax(liveMax);
-        _liveBar.liveMin(liveMin);
 
         _collision = GetComponent<CollisionPlayer>();
         _rb = GetComponent<Rigidbody>();
@@ -35,20 +27,9 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        live();
         jump();
         movement();
 
-    }
-
-    private void live()
-    {
-        _liveBar.liveValue(counterLive);
-        if (counterLive < 1)
-        {
-
-            gameOver = true;
-        }
     }
 
     private void movement()

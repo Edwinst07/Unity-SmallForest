@@ -6,6 +6,12 @@ public class CollisionPlayer : MonoBehaviour
 {
 
     public bool touchingFloor = true;
+    private AnimationPlayer _anim;
+
+    private void Start()
+    {
+        _anim = GetComponent<AnimationPlayer>();
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -20,6 +26,7 @@ public class CollisionPlayer : MonoBehaviour
         if (collision.gameObject.CompareTag("Terrein"))
         {
             touchingFloor = false;
+            _anim.SetJump(touchingFloor);
         }
     }
 
