@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 //using UnityEditor.Animations;
 
 public class Enemy : MonoBehaviour
@@ -21,6 +22,8 @@ public class Enemy : MonoBehaviour
     private float changeDestinationDistance;
     private AnimationEnemy _anim;
     private string state ="Patrolling";
+    public int live = 90;
+    public Slider healthBar;
 
     
     void Start()
@@ -39,6 +42,9 @@ public class Enemy : MonoBehaviour
                 break;
             case "Chasing":
                 chase();
+                break;
+            case "Attacking":
+                attack();
                 break;
             default: 
                 break;
@@ -101,9 +107,25 @@ public class Enemy : MonoBehaviour
         else
         {
             currentDestination = 0;
-            //_anim.walk(false);
         }
         
+    }
+
+    private void attack()
+    {
+
+    }
+
+    public void damage()
+    {
+        live -= 3;
+
+        healthBar.value = live;
+
+        if(live <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
 }

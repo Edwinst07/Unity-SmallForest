@@ -9,6 +9,11 @@ public class Foot : MonoBehaviour
     public bool impact;
     private Rigidbody rb;
     private AnimationEnemy _animEnemy;
+    [SerializeField] 
+    private Transform vectorDirection;
+    [SerializeField]
+    private Transform vectorFoot;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +30,7 @@ public class Foot : MonoBehaviour
 
     private void RayFeet()
     {
+        
         Debug.DrawRay(transform.position, Vector3.up * distance);
         Ray ray = new Ray(transform.position, Vector3.up * distance);
         RaycastHit hit;
@@ -32,13 +38,19 @@ public class Foot : MonoBehaviour
         if (impact && hit.collider.gameObject.tag=="Enemy")
         {
             Debug.Log("Estas encima del enemigo!!");
-            hit.rigidbody.velocity = new Vector3(3,0,0);
-            //hit.rigidbody.AddForce(4, 0, 0, ForceMode.Acceleration);
-            //_animEnemy.back_by_attack(true);
+            Rigidbody rbEnemy = hit.collider.GetComponent<Rigidbody>();
+
+            Vector3 direction = vectorFoot.position - vectorDirection.position;
+            if (rbEnemy != null) rbEnemy.AddForce(direction * 100f);
+
+            Enemy enemy = hit.collider.GetComponent<Enemy>();
+            
+            if (enemy != null)
+            {
+                enemy.damage();
+                Debug.Log("Live: " + enemy.live);
+            }
+
         }
-        /*else
-        {
-            _animEnemy.back_by_attack(false);
-        }*/
     }
 }
