@@ -7,7 +7,7 @@ public class Foot : MonoBehaviour
 {
     public float distance;
     public bool impact;
-    private Rigidbody rb;
+    //private Rigidbody rb;
     private AnimationEnemy _animEnemy;
     [SerializeField] 
     private Transform vectorDirection;
@@ -17,7 +17,7 @@ public class Foot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        //rb = GetComponent<Rigidbody>();
         _animEnemy = Component.FindObjectOfType<AnimationEnemy>();
     }
 
@@ -40,8 +40,9 @@ public class Foot : MonoBehaviour
             Debug.Log("Estas encima del enemigo!!");
             Rigidbody rbEnemy = hit.collider.GetComponent<Rigidbody>();
 
-            Vector3 direction = vectorFoot.position - vectorDirection.position;
-            if (rbEnemy != null) rbEnemy.AddForce(direction * 100f);
+            //Vector3 direction = vectorFoot.position - vectorDirection.position;
+            
+            if (rbEnemy != null) rbEnemy.AddForce(ray.direction * 100f); // direction * 100f
 
             Enemy enemy = hit.collider.GetComponent<Enemy>();
             

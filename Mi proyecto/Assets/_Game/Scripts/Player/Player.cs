@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
 
-
-
     [SerializeField]
     private float _spped = 3.5f;
     private CollisionPlayer _collision;
@@ -29,6 +27,7 @@ public class Player : MonoBehaviour
     {
         jump();
         movement();
+        attack();
 
     }
 
@@ -54,7 +53,15 @@ public class Player : MonoBehaviour
             _animPlayer.SetJump(_collision.touchingFloor);
         }
 
+    }
 
+    private void attack()
+    {
+        if(Input.GetKey(KeyCode.F))
+        {
+            _animPlayer.SetAttack();
+        }
+        
     }
 
 }

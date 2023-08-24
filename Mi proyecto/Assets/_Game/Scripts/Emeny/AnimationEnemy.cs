@@ -14,7 +14,7 @@ public class AnimationEnemy : MonoBehaviour
 
     public void walk(bool walkValue)
     {
-        _anim.SetBool("walk", walkValue);
+        _anim.SetBool("Walk", walkValue);
     }
 
     public void back_by_attack(bool jumpValue)
@@ -22,5 +22,9 @@ public class AnimationEnemy : MonoBehaviour
         _anim.SetBool("Jump", jumpValue);
     }
     
+    public void attack(bool attackValue)
+    {
+        _anim.SetBool("Attack", attackValue);
+    }
 
 }

@@ -33,4 +33,10 @@ public class LiveBar : MonoBehaviour
     
         _slider.value = liveValue;
     }
+
+    public void startBarLive(int healthValue)
+    {
+        liveMax(healthValue);
+        liveValue(healthValue);
+    }
 }

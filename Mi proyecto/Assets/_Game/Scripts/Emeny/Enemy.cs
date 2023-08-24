@@ -12,7 +12,8 @@ public class Enemy : MonoBehaviour
     public Transform jugador;
     public float velocidad;
     public NavMeshAgent agent;
-    //public Animator animacion;
+    public int live = 90;
+
     [SerializeField]
     private bool estarAlerta;
     [SerializeField]
@@ -21,11 +22,21 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private float changeDestinationDistance;
     private AnimationEnemy _anim;
-    private string state ="Patrolling";
-    public int live = 90;
-    public Slider healthBar;
+    private string state = "Patrolling";
+    [SerializeField]
+    private Slider healthBar;
+    [SerializeField]
+    private bool impact = false;
+    //[SerializeField]
+    //private GameObject rayLeft, rayRight;
+    [SerializeField]
+    private GameObject rayEnemy;
+    [SerializeField]
+    private float distance;
+    [SerializeField]
+    private GameObject vectorRay;
 
-    
+
     void Start()
     {
         _anim = GetComponent<AnimationEnemy>();
@@ -43,13 +54,10 @@ public class Enemy : MonoBehaviour
             case "Chasing":
                 chase();
                 break;
-            case "Attacking":
-                attack();
-                break;
             default: 
                 break;
         }
-
+        Debug.Log("State: " + state);
     }
 
     private void OnDrawGizmos()
@@ -72,11 +80,10 @@ public class Enemy : MonoBehaviour
             //transform.LookAt(posjugador);
             //transform.position = Vector3.MoveTowards(transform.position,posjugador, velocidad * Time.deltaTime);
             agent.SetDestination(posjugador);
+            attack();
         }
         if (estarAlerta == false)
         {
-            //animacion.SetBool("walk", false);
-            //_anim.walk(false);
 
             state = "Patrolling";
         }
@@ -113,7 +120,22 @@ public class Enemy : MonoBehaviour
 
     private void attack()
     {
+        Vector3 direction = rayEnemy.transform.position - vectorRay.transform.position;
+        Debug.DrawRay(rayEnemy.transform.position, direction * distance, color: Color.yellow);
+        Ray ray = new Ray(rayEnemy.transform.position, direction * distance);
+        RaycastHit hit;
+        impact = Physics.Raycast(ray, out hit);
 
+        if(impact && hit.collider.CompareTag("Player"))
+        {
+            _anim.attack(true);
+            Debug.Log("El rayo tocó el player");
+        }
+        else
+        {
+            _anim.attack(false);
+            state = "Patrolling";
+        }
     }
 
     public void damage()

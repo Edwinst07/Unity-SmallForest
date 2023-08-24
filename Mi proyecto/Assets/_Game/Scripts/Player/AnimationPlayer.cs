@@ -23,7 +23,12 @@ public class AnimationPlayer : MonoBehaviour
 
     public void SetJump(bool jumpValue)
     {
-        _anim.SetBool("TouchingFloor", jumpValue);
+        _anim.SetBool("Jump", jumpValue);
+    }
+
+    public void SetAttack()
+    {
+        _anim.SetTrigger("Attack");
     }
 
 }

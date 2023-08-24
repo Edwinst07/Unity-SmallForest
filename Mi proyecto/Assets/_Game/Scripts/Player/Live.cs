@@ -1,34 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Live : MonoBehaviour
 {
-    private LiveBar _liveBar;
+    
     public bool gameOver = false;
-    //private UIManager _uiManager;
-    //private const int liveMax = 100;
-    //private const int liveMin = 0;
-    public int counterLive;
+    public int live=500;
+    private LiveBar healthPlayer;
+    [SerializeField]
+    private Slider _liveBar;
+
     // Start is called before the first frame update
     void Start()
     {
-        //_uiManager = Component.FindObjectOfType<UIManager>();
-        _liveBar = Component.FindObjectOfType<LiveBar>();
-        ///_liveBar.liveMax(liveMax);
-        //_liveBar.liveMin(liveMin);
+        
+        //live = healthMax;
+        healthPlayer = Component.FindObjectOfType<LiveBar>();
+        healthPlayer.startBarLive(live);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Damage()
     {
-        Damage();
-    }
+        live --;
 
-    private void Damage()
-    {
-        _liveBar.liveValue(counterLive);
-        if (counterLive < 1)
+        healthPlayer.liveValue(live);
+        _liveBar.value = live;
+        if (live < 1)
         {
 
             gameOver = true;
