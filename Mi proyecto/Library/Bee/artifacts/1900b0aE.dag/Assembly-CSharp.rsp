@@ -378,6 +378,7 @@
 "Assets/_Game/Scripts/Emeny/RayWing.cs"
 "Assets/_Game/Scripts/Enemigogolpe.cs"
 "Assets/_Game/Scripts/GiroP.cs"
+"Assets/_Game/Scripts/Lake/Lake.cs"
 "Assets/_Game/Scripts/NewBehaviourScript.cs"
 "Assets/_Game/Scripts/Player/AnimationPlayer.cs"
 "Assets/_Game/Scripts/Player/BangEnemy.cs"
@@ -388,7 +389,7 @@
 "Assets/_Game/Scripts/Player/LookY.cs"
 "Assets/_Game/Scripts/Player/Player.cs"
 "Assets/_Game/Scripts/Player/Recoleccion.cs"
-"Assets/_Game/Scripts/UI/Intro.cs"
+"Assets/_Game/Scripts/UI/AudioItem.cs"
 "Assets/_Game/Scripts/UI/LiveBar.cs"
 "Assets/_Game/Scripts/UI/UIManager.cs"
 -langversion:9.0

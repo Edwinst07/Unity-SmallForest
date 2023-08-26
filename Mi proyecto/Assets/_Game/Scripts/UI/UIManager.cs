@@ -11,24 +11,10 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private GameObject inventorySeed, inventoryLand, inventoryWater;
     [SerializeField]
-    private GameObject intro;
+    private GameObject itemIntro, itemExtra, itemControl;
     [SerializeField]
     private GameObject player;
-    [SerializeField]
-    private Slider liveBar;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void UpdatePointSeed(int point)
     {
@@ -50,16 +36,30 @@ public class UIManager : MonoBehaviour
 
     public void StartPlay()
     {
-        intro.SetActive(false);
+        itemIntro.SetActive(false);
         
         player.SetActive(true);
     }
-    /*
-    public void SliderLiveBar(int counterLive, int liveMax, int liveMin)
+    
+    public void StartExtra()
     {
-        liveBar.value = counterLive;
-        liveBar.minValue = liveMin; 
-        liveBar.maxValue = liveMax;
+        itemControl.SetActive(true);
+        itemIntro.SetActive(false);
     }
-    */
+
+    public void StartControl()
+    {
+        itemControl.SetActive(true);
+        itemIntro.SetActive(false);
+    }
+
+    public void ReturnButton() 
+    {
+
+        itemControl.SetActive(false);
+        itemExtra.SetActive(false);
+        itemIntro.SetActive(true);
+    
+    }
+
 }
