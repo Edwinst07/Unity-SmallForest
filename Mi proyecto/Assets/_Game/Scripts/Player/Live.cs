@@ -30,6 +30,8 @@ public class Live : MonoBehaviour
         {
 
             gameOver = true;
+            this.gameObject.SetActive(false);
+
         }
     }
 

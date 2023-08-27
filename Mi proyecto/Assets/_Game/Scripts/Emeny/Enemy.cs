@@ -35,6 +35,8 @@ public class Enemy : MonoBehaviour
     private float distance;
     [SerializeField]
     private GameObject vectorRay;
+    [SerializeField]
+    private GameObject cloud;
 
 
     void Start()
@@ -146,8 +148,16 @@ public class Enemy : MonoBehaviour
 
         if(live <= 0)
         {
+            //cloud.SetActive(true);
             Destroy(this.gameObject);
+            Instantiate(cloud, transform.position, Quaternion.identity);
         }
+    }
+
+    private void OnDisable()
+    {
+        
+        //cloud.SetActive(true);
     }
 
 }
